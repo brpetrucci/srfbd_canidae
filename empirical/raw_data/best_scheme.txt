@@ -1,0 +1,128 @@
+Settings used
+
+alignment         : ./Canidae_concatenated_matrix.phy
+branchlengths     : linked
+models            : JC, JC+G, HKY, HKY+G, GTR, GTR+G
+model_selection   : bic
+search            : greedy
+
+
+Best partitioning scheme
+
+Scheme Name       : step_17
+Scheme lnL        : -42704.9228515625
+Scheme BIC        : 86663.1257384
+Number of params  : 129
+Number of sites   : 16570
+Number of subsets : 9
+
+Subset | Best Model | # sites    | subset id                        | Partition names                                                                                     
+1      | HKY+G      | 3791       | e237dde90d3590d124fd0c38b150e47d | 12149, TRSP, TTR, 175, chrna1                                                                       
+2      | HKY+G      | 1209       | 9e9c199a40a071ab4fdae5e55e1f8fab | tmem20, 792                                                                                         
+3      | HKY+G      | 3266       | c17da741a970a1c5e7161ac722540f00 | RASA2, apob_S1, apob_S2, brca1s1, brca1s2                                                           
+4      | HKY        | 1225       | c3676b195e3356f067d4d949364762e6 | BDNF, ghr                                                                                           
+5      | HKY+G      | 2471       | 0fd0a2c7e828858c9332256421492393 | CHST12, cmkor1, vtn, vangl2                                                                         
+6      | HKY+G      | 2780       | eee35129282ef587153b91cc630bd6fe | PNOC, Cypia, rag1, vwf, FES                                                                         
+7      | GTR+G      | 610        | 0e310f0ecf1228c16c4bcd787cefdc04 | mt1                                                                                                 
+8      | HKY+G      | 609        | 8796f07f116f72761cd9f8240e86881b | mt2                                                                                                 
+9      | GTR+G      | 609        | 58257fb5c7ab008fcac1a4c85c8865a6 | mt3                                                                                                 
+
+
+Scheme Description in PartitionFinder format
+Scheme_step_17 = (12149, TRSP, TTR, 175, chrna1) (tmem20, 792) (RASA2, apob_S1, apob_S2, brca1s1, brca1s2) (BDNF, ghr) (CHST12, cmkor1, vtn, vangl2) (PNOC, Cypia, rag1, vwf, FES) (mt1) (mt2) (mt3);
+
+Nexus formatted character sets
+begin sets;
+	charset Subset1 = 1-921 11200-11913 11914-12979 922-1643 5508-5875;
+	charset Subset2 = 10585-11199 1644-2237;
+	charset Subset3 = 10100-10584 2238-2870 2871-3572 4062-4802 4803-5507;
+	charset Subset4 = 3573-4061 8364-9099;
+	charset Subset5 = 5876-6580 6581-7315 13526-14010 12980-13525;
+	charset Subset6 = 9100-9358 7316-7914 9359-10099 14011-14742 7915-8363;
+	charset Subset7 = 14743-15426\3 15427-16570\3;
+	charset Subset8 = 14744-15426\3 15428-16570\3;
+	charset Subset9 = 14745-15426\3 15429-16570\3;
+	charpartition PartitionFinder = Group1:Subset1, Group2:Subset2, Group3:Subset3, Group4:Subset4, Group5:Subset5, Group6:Subset6, Group7:Subset7, Group8:Subset8, Group9:Subset9;
+end;
+
+
+Nexus formatted character sets for IQtree
+Warning: the models written in the charpartition are just the best model found in this analysis. Not all models are available in IQtree, so you may need to set up specific model lists for your analysis
+
+#nexus
+begin sets;
+	charset Subset1 = 1-921 11200-11913 11914-12979 922-1643 5508-5875;
+	charset Subset2 = 10585-11199 1644-2237;
+	charset Subset3 = 10100-10584 2238-2870 2871-3572 4062-4802 4803-5507;
+	charset Subset4 = 3573-4061 8364-9099;
+	charset Subset5 = 5876-6580 6581-7315 13526-14010 12980-13525;
+	charset Subset6 = 9100-9358 7316-7914 9359-10099 14011-14742 7915-8363;
+	charset Subset7 = 14743-15426\3 15427-16570\3;
+	charset Subset8 = 14744-15426\3 15428-16570\3;
+	charset Subset9 = 14745-15426\3 15429-16570\3;
+	charpartition PartitionFinder = HKY+G:Subset1, HKY+G:Subset2, HKY+G:Subset3, HKY:Subset4, HKY+G:Subset5, HKY+G:Subset6, GTR+G:Subset7, HKY+G:Subset8, GTR+G:Subset9;
+end;
+
+
+RaxML-style partition definitions
+Warning: RAxML allows for only a single model of rate heterogeneity in partitioned analyses. I.e. all partitions must be assigned one of three types of model: No heterogeneity (e.g. GTR); +G (e.g. GTR+G); or +I+G (e.g. GTR+I+G). If the best models for your datasetcontain different types of model for different subsets you will need to decide on the best rate heterogeneity model before you run RAxML. If you prefer to do things more rigorously, you can run separate PartitionFinder analyses for each type of rate heterogenetity Then choose the scheme with the lowest AIC/AICc/BIC score. Note that these re-runs will be quick!
+
+DNA, Subset1 = 1-921, 11200-11913, 11914-12979, 922-1643, 5508-5875
+DNA, Subset2 = 10585-11199, 1644-2237
+DNA, Subset3 = 10100-10584, 2238-2870, 2871-3572, 4062-4802, 4803-5507
+DNA, Subset4 = 3573-4061, 8364-9099
+DNA, Subset5 = 5876-6580, 6581-7315, 13526-14010, 12980-13525
+DNA, Subset6 = 9100-9358, 7316-7914, 9359-10099, 14011-14742, 7915-8363
+DNA, Subset7 = 14743-15426\3, 15427-16570\3
+DNA, Subset8 = 14744-15426\3, 15428-16570\3
+DNA, Subset9 = 14745-15426\3, 15429-16570\3
+
+
+MrBayes block for partition definitions
+Warning: MrBayes only allows a relatively small collection of models. If any model in your analysis is not one that is included in MrBayes (e.g. by setting nst = 1, 2, or 6 for DNA sequences; or is not in the available list of protein models for MrBayes)then this MrBayes block will just set that model to nst = 6 for DNA, or 'wag' for Protein. Similarly, the only additional parameters that this MrBayes block will include are +I and +G. Other  parameters, such as +F and +X, are ignored. If you want to use this MrBayes block for your analysis, please make sure to check it carefully before you use it we've done our best to make it accurate, but there may be errors that remain!
+
+begin mrbayes;
+
+	charset Subset1 = 1-921 11200-11913 11914-12979 922-1643 5508-5875;
+	charset Subset2 = 10585-11199 1644-2237;
+	charset Subset3 = 10100-10584 2238-2870 2871-3572 4062-4802 4803-5507;
+	charset Subset4 = 3573-4061 8364-9099;
+	charset Subset5 = 5876-6580 6581-7315 13526-14010 12980-13525;
+	charset Subset6 = 9100-9358 7316-7914 9359-10099 14011-14742 7915-8363;
+	charset Subset7 = 14743-15426\3 15427-16570\3;
+	charset Subset8 = 14744-15426\3 15428-16570\3;
+	charset Subset9 = 14745-15426\3 15429-16570\3;
+
+	partition PartitionFinder = 9:Subset1, Subset2, Subset3, Subset4, Subset5, Subset6, Subset7, Subset8, Subset9;
+	set partition=PartitionFinder;
+
+	lset applyto=(1) nst=2 rates=gamma;
+	lset applyto=(2) nst=2 rates=gamma;
+	lset applyto=(3) nst=2 rates=gamma;
+	lset applyto=(4) nst=2;
+	lset applyto=(5) nst=2 rates=gamma;
+	lset applyto=(6) nst=2 rates=gamma;
+	lset applyto=(7) nst=6 rates=gamma;
+	lset applyto=(8) nst=2 rates=gamma;
+	lset applyto=(9) nst=6 rates=gamma;
+
+	prset applyto=(all) ratepr=variable;
+	unlink statefreq=(all) revmat=(all) shape=(all) pinvar=(all) tratio=(all);
+
+end;
+
+
+
+*Citations for this analysis*
+-----------------------------
+If you use this analysis in your published work, please cite the following papers on which your analysis relied.
+
+For the version of PartitionFinder you used, please cite:
+Lanfear, R., Frandsen, P. B., Wright, A. M., Senfeld, T., Calcott, B. (2016) PartitionFinder 2: new methods for selecting partitioned models of evolution formolecular and morphological phylogenetic analyses. Molecular biology and evolution. DOI: dx.doi.org/10.1093/molbev/msw260
+
+For the greedy algorithm you used, please cite:
+Lanfear, R., Calcott, B., Ho, S. Y., & Guindon, S. (2012). PartitionFinder: combined selection of partitioning schemes and substitution models for phylogenetic analyses. Molecular biology and evolution, 29(6), 1695-1701.
+
+Your analysis also used PhyML, so please cite:
+Guindon, S., Dufayard, J. F., Lefort, V., Anisimova, M., Hordijk, W., & Gascuel, O. (2010). New algorithms and methods to estimate maximum-likelihood phylogenies: assessing the performance of PhyML 3.0. Systematic biology, 59(3), 307-321.
+
